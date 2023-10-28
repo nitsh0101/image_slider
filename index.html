@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        button {
+            font-size: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="https://picsum.photos/id/238/1000/600" id="contentImage">
+    </div>
+    <button onclick="previmg()">Prev</button>
+    <button onclick="nextimg()">Next</button>
+    <script>
+
+        let images = ["https://picsum.photos/id/238/1000/600", "https://picsum.photos/id/232/1000/600", "https://picsum.photos/id/227/1000/600"];
+        let currentImageIndex = 0;
+
+        function nextimg() {
+            currentImageIndex++;
+            if (currentImageIndex >= images.length) {
+                currentImageIndex = 0;
+            }
+            let contentImage = document.getElementById('contentImage');
+            contentImage.src = images[currentImageIndex];
+        }
+        function previmg() {
+            currentImageIndex--;
+            if (currentImageIndex < 0) {
+                currentImageIndex = images.length - 1;
+            }
+
+            let contentImage = document.getElementById('contentImage');
+            contentImage.src = images[currentImageIndex];
+        }
+    </script>
+
+</body>
+
+</html>
